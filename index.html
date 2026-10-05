@@ -716,6 +716,121 @@
             </div>
         </div>
     </section>
+    <!-- AUTOPLAY PHOTO SLIDER SECTION -->
+<section id="highlights-slider" class="py-16 px-6 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-8">
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">Visual Evidence</span>
+      <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-2">Field Operations & Impact in Action</h2>
+      <p class="text-slate-600 dark:text-slate-400 text-sm max-w-xl mx-auto mt-1">Highlights from field data assessments, training sessions, and community interventions.</p>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="relative w-full overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg bg-black">
+      
+      <!-- Slides Wrapper -->
+      <div id="slider-track" class="flex transition-transform duration-700 ease-in-out w-full">
+        
+        <!-- Slide 1 -->
+        <div class="w-full flex-shrink-0 relative h-72 sm:h-96">
+          <img src="photo1.jpg" alt="Field Photo 1" class="w-full h-full object-cover opacity-90">
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+            <h3 class="font-bold text-base sm:text-lg">Financial & Digital Literacy Training</h3>
+            <p class="text-xs text-slate-200 mt-0.5">Capacity building sessions under the AIM Programme</p>
+          </div>
+        </div>
+
+          <!-- Slide 2 -->
+        <div class="w-full flex-shrink-0 relative h-72 sm:h-96">
+          <img src="photo2.jpg" alt="Field Photo 2" class="w-full h-full object-cover opacity-90">
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+            <h3 class="font-bold text-base sm:text-lg">Routine Health Facility & Data Audits</h3>
+            <p class="text-xs text-slate-200 mt-0.5">Evaluating primary health system indicators in the field</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="w-full flex-shrink-0 relative h-72 sm:h-96">
+          <img src="photo3.jpg" alt="Field Photo 3" class="w-full h-full object-cover opacity-90">
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+            <h3 class="font-bold text-base sm:text-lg">District Health Management Engagements</h3>
+            <p class="text-xs text-slate-200 mt-0.5">Participatory planning & policy reviews with CHMT teams</p>
+          </div>
+        </div>
+          
+        <!-- Slide 4 -->
+        <div class="w-full flex-shrink-0 relative h-72 sm:h-96">
+          <img src="photo4.jpg" alt="Field Photo 2" class="w-full h-full object-cover opacity-90">
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+            <h3 class="font-bold text-base sm:text-lg">Routine Health Facility & Data Audits</h3>
+            <p class="text-xs text-slate-200 mt-0.5">Evaluating primary health system indicators in the field</p>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="w-full flex-shrink-0 relative h-72 sm:h-96">
+          <img src="photo5.jpg" alt="Field Photo 3" class="w-full h-full object-cover opacity-90">
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+            <h3 class="font-bold text-base sm:text-lg">District Health Management Engagements</h3>
+            <p class="text-xs text-slate-200 mt-0.5">Participatory planning & policy reviews with CHMT teams</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button id="prev-slide" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-chevron-left text-sm"></i>
+      </button>
+      <button id="next-slide" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-chevron-right text-sm"></i>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- Autoplay Script -->
+<script>
+  (function() {
+    const track = document.getElementById('slider-track');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    let currentIndex = 0;
+    const totalSlides = track.children.length;
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    let slideInterval = setInterval(nextSlide, 3500);
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetTimer();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetTimer();
+    });
+
+    function resetTimer() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 3500);
+    }
+  })();
+</script>
 <!-- FIELD ACTIVITIES & EVENT GALLERY SECTION -->
 <section id="gallery" class="py-16 bg-slate-50 border-t border-slate-200">
   <div class="max-w-6xl mx-auto px-6">
